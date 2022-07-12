@@ -12,6 +12,12 @@
             {{Form::label('body', 'Body')}}
             {{Form::textarea('body','', ['class' => 'form-control', 'placeholder' => 'Body Text'])}}
         </div>
+        {{Form::label('title', 'Due date')}}
+        
+        <input type="date" name="due_date" class="form-control">
+        <br>
+
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
-@endsection
+    
+@endsection   
