@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', [PagesController::class, 'index']);
-Route::get('/about', [PagesController::class, 'about']);
-Route::get('/services', [PagesController::class, 'services']);
+Route::get('/reports', [PagesController::class, 'reports']);
 
 Route::resource('posts', '\App\Http\Controllers\PostsController');
 

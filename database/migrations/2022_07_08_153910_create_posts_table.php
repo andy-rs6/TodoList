@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->mediumText('body');
+            $table->date('due_date')->nullable();
             $table->timestamps();
         });
     }
