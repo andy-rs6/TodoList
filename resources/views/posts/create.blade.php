@@ -20,4 +20,4 @@
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
     
-@endsection   
+@endsection

@@ -52,18 +52,21 @@ class PostsController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'body' => 'required',
-            'created_at' => 'required|date_format:Y-m-d',
+            'body' => 'required', 
+            'due_date' => 'required|date_format:Y-m-d',
         ]);
 
         // Create Post
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->due_date = $request->input('due_date');
         $post->user_id = auth()->user()->id;
+
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Created');
+        
     }
 
     /**
