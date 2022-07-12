@@ -21,7 +21,7 @@ Auth::routes(['verify' => true]);
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->middleware(['auth', 'verified']);
 
 //Email
-Route::get('/email', function() {
-    Mail::to('andrei@gmail.com')->send(new Reminder());
-    return new Reminder;
-});
+// Route::get('/email', function() {
+//     Mail::to('andrei@gmail.com')->send(new Reminder());
+//     return new Reminder();
+// });

@@ -8,6 +8,9 @@ use Image as InterventionImage;
 use App\Image;
 use App\Models\Post;
 use Illuminate\Support\Facades\DB;
+use App\Mail\Reminder;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class PostsController extends Controller
 {
@@ -29,6 +32,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::orderBy('created_at','desc')->paginate(10);
+        
         return view('posts.index')->with('posts', $posts);
     }
 
@@ -39,7 +43,9 @@ class PostsController extends Controller
      */
     public function create()
     {
+
         return view('posts.create');
+        
     }
 
     /**
@@ -65,7 +71,13 @@ class PostsController extends Controller
 
         $post->save();
 
-        return redirect('/posts')->with('success', 'Post Created');
+        // if(date("Y-m-d") > $post->due_date){
+        //     Mail::to('andrei@gmail.com')->send(new Reminder());
+        // }
+
+        return redirect('/posts')->with('success', 'Post Created') ;
+
+        
         
     }
 
@@ -79,6 +91,7 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
         return view('posts.show')->with('post', $post);
+        
     }
 
     /**
